@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#060813">
+  <meta
+    name="description"
+    content="Travel through connected technology and the internet from 1960 to 2026. Don't just look back. Step inside."
+  >
+
+  <title>REWINDYR-ERA — Internet Time Machine</title>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+
+<body>
+  <!-- Shared, original interface symbols. No external assets required. -->
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="icon-globe" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="9"/>
+        <ellipse cx="12" cy="12" rx="4" ry="9"/>
+        <path d="M3 12h18M5 6.5h14M5 17.5h14"/>
+      </symbol>
+
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M4 12h15M13 5l7 7-7 7"/>
+      </symbol>
+
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="m6 6 12 12M6 18 18 6"/>
+      </symbol>
+
+      <symbol id="icon-volume" viewBox="0 0 24 24">
+        <path d="m11 5-6 4H2v6h3l6 4V5Z"/>
+        <path d="M15 8a6 6 0 0 1 0 8M18 5a10 10 0 0 1 0 14"/>
+      </symbol>
+
+      <symbol id="icon-volume-off" viewBox="0 0 24 24">
+        <path d="m11 5-6 4H2v6h3l6 4V5Z"/>
+        <path d="m16 9 6 6m0-6-6 6"/>
+      </symbol>
+
+      <symbol id="icon-crosshair" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="6"/>
+        <path d="M12 2v6M12 16v6M2 12h6M16 12h6"/>
+      </symbol>
+
+      <symbol id="icon-cpu" viewBox="0 0 24 24">
+        <rect x="6" y="6" width="12" height="12" rx="1"/>
+        <rect x="9" y="9" width="6" height="6"/>
+        <path d="M9 2v4m6-4v4M9 18v4m6-4v4M2 9h4m-4 6h4m12-6h4m-4 6h4"/>
+      </symbol>
+
+      <symbol id="icon-browser" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M2 9h20M6 6.5h.1M9 6.5h.1M12 6.5h.1M6 13h7M6 16h11"/>
+      </symbol>
+
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <path d="m3 7 9 6 9-6"/>
+      </symbol>
+
+      <symbol id="icon-network" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="3"/>
+        <circle cx="4" cy="4" r="2"/>
+        <circle cx="20" cy="4" r="2"/>
+        <circle cx="4" cy="20" r="2"/>
+        <circle cx="20" cy="20" r="2"/>
+        <path d="m5.5 5.5 4.4 4.4m4.2 4.2 4.4 4.4m0-13-4.4 4.4m-4.2 4.2-4.4 4.4"/>
+      </symbol>
+
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <rect x="6" y="2" width="12" height="20" rx="3"/>
+        <path d="M10 5h4M6 17h12M11 19.5h2"/>
+      </symbol>
+
+      <symbol id="icon-cloud" viewBox="0 0 24 24">
+        <path d="M6 18a4 4 0 0 1-.8-7.9 7 7 0 0 1 13.5-1.6A4.8 4.8 0 0 1 18 18H6Z"/>
+        <path d="M8 21v-5m4 5v-5m4 5v-5"/>
+      </symbol>
+
+      <symbol id="icon-users" viewBox="0 0 24 24">
+        <circle cx="9" cy="8" r="3"/>
+        <path d="M3 21v-3a6 6 0 0 1 12 0v3M16 5a3 3 0 0 1 0 6M17 15a5 5 0 0 1 4 5"/>
+      </symbol>
+
+      <symbol id="icon-spark" viewBox="0 0 24 24">
+        <path d="M12 2c1.5 6 4 8.5 10 10-6 1.5-8.5 4-10 10-1.5-6-4-8.5-10-10C8 10.5 10.5 8 12 2Z"/>
+        <path d="M19 2v4M17 4h4"/>
+      </symbol>
+
+      <symbol id="icon-satellite" viewBox="0 0 120 120">
+        <g transform="rotate(-30 60 60)">
+          <rect x="47" y="43" width="26" height="34" rx="3"/>
+          <path d="M52 43v-8h16v8M60 35V22M55 22h10"/>
+          <rect x="8" y="46" width="32" height="27"/>
+          <rect x="80" y="46" width="32" height="27"/>
+          <path d="M40 59h7m26 0h7M19 46v27m10-27v27m62-27v27m10-27v27M8 59h32m40 0h32"/>
+          <path d="M49 81c7 10 15 10 22 0M44 88c10 14 22 14 32 0"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div
+    id="time-machine"
+    class="time-machine"
+    data-year="1960"
+    data-theme="early"
+    data-phase="idle"
+  >
+    <div class="ambient-background" aria-hidden="true">
+      <div class="ambient-glow ambient-glow--blue"></div>
+      <div class="ambient-glow ambient-glow--purple"></div>
+      <div class="ambient-grid"></div>
+      <div class="ambient-noise"></div>
+      <div id="particles" class="particles"></div>
+    </div>
+
+    <a class="skip-link" href="#timeline">Skip to the time machine</a>
+
+    <header id="home" class="navbar page-width">
+      <a class="brand" href="#home" aria-label="REWINDYR-ERA home">
+        <svg class="icon brand__icon" aria-hidden="true">
+          <use href="#icon-globe"></use>
+        </svg>
+        <span>REWINDYR<span class="brand__suffix">-ERA</span></span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link is-active" href="#home" aria-current="page">
+          HOME
+        </a>
+        <a class="nav-link" href="#timeline">TIMELINE</a>
+        <button
+          id="about-button"
+          class="nav-link"
+          type="button"
+          aria-haspopup="dialog"
+          aria-controls="about-dialog"
+        >
+          ABOUT
+        </button>
+        <a class="nav-link" href="#era-panel">EXPLORE</a>
+      </nav>
+
+      <button
+        id="sound-button"
+        class="sound-button"
+        type="button"
+        aria-pressed="false"
+        aria-label="Turn sound preference on"
+        aria-describedby="sound-help"
+      >
+        <svg class="icon" aria-hidden="true">
+          <use id="sound-icon" href="#icon-volume-off"></use>
+        </svg>
+        <span id="sound-label">TURN SOUND ON</span>
+      </button>
+
+      <span id="sound-help" class="sr-only">
+        This stores a sound preference only. Ambient audio is not available yet.
+      </span>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" aria-labelledby="hero-title">
+        <!-- These interfaces are decorative scenery, not simulated websites. -->
+        <div class="environment" aria-hidden="true">
+          <div class="orbital-system">
+            <div class="orbit orbit--one"></div>
+            <div class="orbit orbit--two"></div>
+            <div class="orbit orbit--three"></div>
+            <div class="orbital-crosshair orbital-crosshair--horizontal"></div>
+            <div class="orbital-crosshair orbital-crosshair--vertical"></div>
+          </div>
+
+          <div class="satellite floating-element">
+            <svg viewBox="0 0 120 120" class="satellite__drawing">
+              <use href="#icon-satellite"></use>
+            </svg>
+            <span>SIGNAL / 001</span>
+          </div>
+
+          <article class="fictional-window window--left floating-element">
+            <div class="window-bar">
+              <span id="decor-browser-title">CONNECTION LAB</span>
+              <span class="window-controls"><i></i><i></i><i></i></span>
+            </div>
+
+            <div class="window-address">
+              <span class="tiny-led"></span>
+              <span id="decor-address">research://a-connected-world</span>
+            </div>
+
+            <div class="window-body">
+              <svg class="window-globe" viewBox="0 0 24 24">
+                <use href="#icon-globe"></use>
+              </svg>
+
+              <h3 id="decor-heading">A WORLD WAITING TO CONNECT.</h3>
+              <div class="window-divider"></div>
+
+              <div class="fictional-menu">
+                <span>EXPLORE</span>
+                <span>SEARCH</span>
+                <span>DISCOVER</span>
+                <span>CONNECT</span>
+              </div>
+
+              <div class="window-footer">
+                <span>ORIGINAL SIGNAL</span>
+                <span id="decor-year">1960</span>
+              </div>
+            </div>
+          </article>
+
+          <div class="crt-computer floating-element">
+            <div class="crt-case">
+              <div class="crt-screen">
+                <div class="crt-screen__inner">
+                  <span class="crt-prompt">&gt;_</span>
+                  <p id="crt-status">CONNECTING...</p>
+                  <p id="crt-line">THE IDEAS ARE BEGINNING...</p>
+                  <span class="crt-cursor"></span>
+                </div>
+              </div>
+              <div class="crt-controls">
+                <span>CHRONOVISION</span>
+                <i></i>
+                <i></i>
+                <b></b>
+              </div>
+            </div>
+            <div class="crt-neck"></div>
+            <div class="crt-base"></div>
+          </div>
+
+          <div class="mainframe floating-element">
+            <div class="mainframe__header">DATA PROCESSING UNIT</div>
+            <div class="mainframe__reels">
+              <span></span>
+              <span></span>
+            </div>
+            <div class="mainframe__switches">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <div class="mainframe__vents"></div>
+          </div>
+
+          <article class="fictional-window window--back floating-element">
+            <div class="window-bar">
+              <span id="window-back-title">SIGNAL RESEARCH</span>
+              <span class="window-controls"><i></i><i></i></span>
+            </div>
+
+            <div class="waveform">
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+              <i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+
+            <div class="signal-caption">
+              <span>TRANSMISSION</span>
+              <span class="tiny-led"></span>
+            </div>
+          </article>
+
+          <article class="fictional-window window--right floating-element">
+            <div class="window-bar">
+              <span id="window-front-title">EARLY NETWORKS</span>
+              <span class="window-controls"><i></i><i></i><i></i></span>
+            </div>
+
+            <div class="network-map">
+              <svg viewBox="0 0 240 120">
+                <path
+                  class="network-map__paths"
+                  d="M22 66 69 25 123 61 176 20 218 66 166 100 123 61 69 100 22 66M69 25v75M176 20l-10 80"
+                />
+                <g class="network-map__nodes">
+                  <circle cx="22" cy="66" r="4"/>
+                  <circle cx="69" cy="25" r="5"/>
+                  <circle cx="123" cy="61" r="7"/>
+                  <circle cx="176" cy="20" r="4"/>
+                  <circle cx="218" cy="66" r="5"/>
+                  <circle cx="166" cy="100" r="4"/>
+                  <circle cx="69" cy="100" r="4"/>
+                </g>
+              </svg>
+            </div>
+
+            <div class="signal-message">
+              <svg class="icon">
+                <use id="signal-symbol" href="#icon-cpu"></use>
+              </svg>
+              <span id="signal-text">ANALOG → DIGITAL</span>
+            </div>
+
+            <div class="window-footer">
+              <span>LINK STATUS</span>
+              <span class="text-accent">POSSIBLE</span>
+            </div>
+          </article>
+
+          <div class="floppy-disk floating-element">
+            <div class="floppy-disk__metal"></div>
+            <div class="floppy-disk__label">
+              <span>MEMORY ARCHIVE</span>
+              <b>DO NOT FORGET.</b>
+              <i></i>
+            </div>
+          </div>
+
+          <div class="future-phone floating-element">
+            <div class="future-phone__camera"></div>
+            <span class="future-phone__time">12:00</span>
+            <div class="future-phone__orb"></div>
+            <div class="future-phone__apps">
+              <i></i><i></i><i></i><i></i>
+            </div>
+            <div class="future-phone__home"></div>
+          </div>
+
+          <div class="intelligent-core floating-element">
+            <span></span><span></span><span></span>
+            <svg class="icon">
+              <use href="#icon-spark"></use>
+            </svg>
+          </div>
+
+          <span class="scene-coordinate scene-coordinate--left">
+            ORIGIN: 1960
+          </span>
+          <span class="scene-coordinate scene-coordinate--right">
+            HORIZON: 2026
+          </span>
+
+          <div class="perspective-grid"></div>
+          <div class="hero-scrim"></div>
+        </div>
+
+        <div class="hero-content page-width">
+          <div class="hero-eyebrow">
+            <span class="status-led"></span>
+            INTERNET TIME MACHINE
+            <span class="eyebrow-separator">/</span>
+            1960 — 2026
+          </div>
+
+          <p class="main-tagline">
+            <span>THE WEB CHANGED.</span>
+            <span>THE EXPERIENCE REMAINS.</span>
+          </p>
+
+          <h1
+            id="hero-title"
+            class="hero-title"
+            data-text="REWINDYR-ERA"
+            aria-label="REWINDYR-ERA"
+          >
+            REWINDYR-ERA
+          </h1>
+
+          <p class="secondary-tagline">
+            DON'T JUST LOOK BACK.<br>
+            <strong>STEP INSIDE.</strong>
+          </p>
+
+          <p class="hero-description">
+            Travel through the evolution of the internet.<br>
+            Choose an era. Step inside.
+          </p>
+
+          <button
+            class="portal-button hero-enter"
+            type="button"
+            data-enter-era
+            aria-haspopup="dialog"
+            aria-controls="era-portal"
+          >
+            <span>ENTER THE ERA</span>
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-arrow"></use>
+            </svg>
+          </button>
+
+          <div class="hero-destination">
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-crosshair"></use>
+            </svg>
+            <span>DESTINATION</span>
+            <strong id="hero-year">1960</strong>
+            <span class="destination-status">COORDINATES LOCKED</span>
+          </div>
+        </div>
+
+        <div class="hero-bottom-mark page-width" aria-hidden="true">
+          <span>PAST / PRESENT / POSSIBILITY</span>
+          <span>SCROLL TO NAVIGATE ↓</span>
+        </div>
+      </section>
+
+      <section
+        id="timeline"
+        class="timeline-console page-width"
+        aria-labelledby="timeline-heading"
+        tabindex="-1"
+      >
+        <header class="console-header">
+          <div>
+            <p class="eyebrow">
+              <span class="text-accent">01 /</span>
+              TEMPORAL COORDINATES
+            </p>
+            <h2 id="timeline-heading">Choose your point in time.</h2>
+          </div>
+
+          <div class="timeline-range" aria-label="Timeline from 1960 to 2026">
+            <span>1960</span>
+            <span class="timeline-range__line"></span>
+            <span>2026</span>
+          </div>
+        </header>
+
+        <div class="timeline-frame">
+          <div class="timeline-topline">
+            <span><i class="status-led"></i> TIME MACHINE ONLINE</span>
+            <span>SELECT A MILESTONE</span>
+          </div>
+
+          <div
+            id="year-grid"
+            class="year-grid"
+            role="radiogroup"
+            aria-label="Choose an era from 1960 to 2026"
+            aria-describedby="timeline-instructions"
+          ></div>
+
+          <div class="timeline-bottomline">
+            <span>THE BEGINNING</span>
+            <span id="milestone-count">8 DESTINATIONS</span>
+            <span>THE NEXT CHAPTER</span>
+          </div>
+        </div>
+
+        <p id="timeline-instructions" class="sr-only">
+          Use the arrow keys to change years. Home selects 1960.
+          End selects 2026. Milestones are equally spaced, not to scale.
+        </p>
+
+        <template id="year-template">
+          <button
+            class="year-node"
+            type="button"
+            role="radio"
+            aria-checked="false"
+            aria-controls="era-panel"
+            tabindex="-1"
+          >
+            <span class="year-node__year"></span>
+            <span class="year-node__marker" aria-hidden="true">
+              <span class="year-node__core"></span>
+            </span>
+            <span class="year-node__caption" aria-hidden="true"></span>
+          </button>
+        </template>
+
+        <section
+          id="era-panel"
+          class="era-panel"
+          aria-labelledby="era-title"
+          aria-describedby="era-description"
+          aria-busy="false"
+          tabindex="-1"
+        >
+          <div id="era-content" class="era-content">
+            <div class="era-coordinate">
+              <span class="eyebrow">SELECTED DESTINATION</span>
+              <p id="selected-year" class="era-year">1960</p>
+              <span class="era-coordinate__status">
+                <i class="status-led"></i>
+                READY TO EXPLORE
+              </span>
+
+              <svg class="era-symbol" aria-hidden="true">
+                <use id="era-symbol" href="#icon-cpu"></use>
+              </svg>
+            </div>
+
+            <div class="era-story">
+              <div class="era-index">
+                <span id="era-index">ERA 01 / 08</span>
+                <span class="era-index__rule"></span>
+                <span id="era-signal">ANALOG → DIGITAL</span>
+              </div>
+
+              <h3 id="era-title">THE SEEDS OF A CONNECTED WORLD</h3>
+
+              <p id="era-description">
+                The internet doesn't exist yet, but the ideas, research and
+                technology that will eventually connect the world are
+                beginning to emerge.
+              </p>
+
+              <ul id="era-categories" class="era-categories" aria-label="Era themes">
+                <li>TECHNOLOGY</li>
+                <li>RESEARCH</li>
+                <li>CULTURE</li>
+                <li>EVENTS</li>
+              </ul>
+            </div>
+
+            <div class="era-action">
+              <span class="era-action__label">YOUR NEXT CONNECTION</span>
+
+              <button
+                class="portal-button portal-button--secondary"
+                type="button"
+                data-enter-era
+                aria-haspopup="dialog"
+                aria-controls="era-portal"
+              >
+                <span>ENTER THE ERA</span>
+                <svg class="icon" aria-hidden="true">
+                  <use href="#icon-arrow"></use>
+                </svg>
+              </button>
+
+              <span class="era-action__hint">OPEN THE ERA INTRODUCTION</span>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="footer page-width">
+      <div class="footer-message">
+        <svg class="icon" aria-hidden="true">
+          <use href="#icon-globe"></use>
+        </svg>
+        <span>THE PAST IS NOT OFFLINE.</span>
+      </div>
+
+      <span class="footer-chapter">REWINDYR-ERA / HOME 01</span>
+
+      <a href="#home" class="footer-top">
+        BACK TO THE SURFACE <span aria-hidden="true">↑</span>
+      </a>
+    </footer>
+
+    <p
+      id="selection-announcement"
+      class="sr-only"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true"
+    ></p>
+
+    <!-- One native dialog handles both the transition and era introduction. -->
+    <dialog
+      id="era-portal"
+      class="era-portal"
+      data-stage="idle"
+      aria-labelledby="portal-heading"
+      aria-modal="true"
+    >
+      <h2 id="portal-heading" class="sr-only">Era introduction</h2>
+
+      <button
+        id="close-portal"
+        class="portal-close"
+        type="button"
+        aria-label="Cancel transition and return to the time machine"
+        autofocus
+      >
+        <span>RETURN TO THE MACHINE</span>
+        <svg class="icon" aria-hidden="true">
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+
+      <div id="portal-progress" class="portal-progress">
+        <span class="eyebrow">TEMPORAL TRANSFER PROTOCOL</span>
+
+        <div class="transfer-orbit" aria-hidden="true">
+          <span></span>
+          <span></span>
+        </div>
+
+        <p id="transfer-year" class="transfer-year">1960</p>
+
+        <p
+          id="transfer-status"
+          class="transfer-status"
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          INITIALIZING 1960...
+        </p>
+
+        <div
+          id="transfer-meter"
+          class="transfer-meter"
+          role="progressbar"
+          aria-label="Era transition"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span></span>
+        </div>
+
+        <p class="transfer-note">HOLDING YOUR PLACE IN TIME</p>
+      </div>
+
+      <div id="portal-intro" class="portal-intro" hidden>
+        <div class="intro-grid" aria-hidden="true"></div>
+        <div class="intro-orbit" aria-hidden="true"></div>
+
+        <div class="intro-content">
+          <p class="intro-eyebrow">
+            <span class="status-led"></span>
+            TEMPORAL CONNECTION ESTABLISHED
+          </p>
+
+          <p id="intro-year" class="intro-year">1960</p>
+
+          <h3 id="intro-title" tabindex="-1">
+            THE SEEDS OF A CONNECTED WORLD
+          </h3>
+
+          <p id="intro-description" class="intro-description">
+            The foundations of a connected world are beginning to form.
+          </p>
+
+          <div class="intro-divider" aria-hidden="true">
+            <span></span>
+            <svg class="icon">
+              <use id="intro-symbol" href="#icon-cpu"></use>
+            </svg>
+            <span></span>
+          </div>
+
+          <button id="enter-web" class="portal-button" type="button">
+            <span>ENTER THE WEB</span>
+            <svg class="icon" aria-hidden="true">
+              <use href="#icon-arrow"></use>
+            </svg>
+          </button>
+
+          <p class="intro-availability">
+            ERA INTRODUCTION PREVIEW / WORLDS INSIDE COMING LATER
+          </p>
+
+          <p
+            id="web-notice"
+            class="web-notice"
+            tabindex="-1"
+            hidden
+          ></p>
+        </div>
+
+        <div class="intro-bottomline">
+          <span>REWINDYR-ERA</span>
+          <span>DON'T JUST LOOK BACK. STEP INSIDE.</span>
+        </div>
+      </div>
+    </dialog>
+
+    <dialog
+      id="about-dialog"
+      class="about-dialog"
+      aria-labelledby="about-title"
+      aria-describedby="about-description"
+    >
+      <button
+        class="dialog-close"
+        type="button"
+        data-close-about
+        aria-label="Close about"
+        autofocus
+      >
+        <svg class="icon" aria-hidden="true">
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+
+      <p class="eyebrow text-accent">ABOUT THE MACHINE</p>
+
+      <h2 id="about-title">Not an archive.<br>A way inside.</h2>
+
+      <p id="about-description">
+        REWINDYR-ERA is an interactive time machine for connected technology
+        and the internet, from the ideas of 1960 to the possibilities of 2026.
+      </p>
+
+      <p>
+        The goal is to experience an era through original fictional interfaces,
+        communities, and digital worlds—not just read about it.
+      </p>
+
+      <div class="about-note">
+        This first version contains the home-page controls and era
+        introductions. The simulated internet will be built in later tabs.
+      </div>
+
+      <button
+        class="portal-button portal-button--secondary"
+        type="button"
+        data-close-about
+      >
+        <span>BACK TO THE MACHINE</span>
+        <svg class="icon" aria-hidden="true">
+          <use href="#icon-arrow"></use>
+        </svg>
+      </button>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden>
+      <svg class="icon" aria-hidden="true">
+        <use href="#icon-crosshair"></use>
+      </svg>
+      <p id="toast-message"></p>
+      <button id="dismiss-toast" type="button" aria-label="Dismiss notification">
+        <svg class="icon" aria-hidden="true">
+          <use href="#icon-close"></use>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="noscript-message">
+      Enable JavaScript to select eras and operate the time machine.
+    </div>
+  </noscript>
+</body>
+</html>
