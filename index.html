@@ -93,6 +93,39 @@
         <path d="M19 2v4M17 4h4"/>
       </symbol>
 
+      <!-- TAB 03: section symbols for the simulated internet console. -->
+      <symbol id="icon-note" viewBox="0 0 24 24">
+        <path d="M9 18V6l10-2v12"/>
+        <circle cx="6" cy="18" r="3"/>
+        <circle cx="16" cy="16" r="3"/>
+      </symbol>
+
+      <symbol id="icon-gamepad" viewBox="0 0 24 24">
+        <path d="M7 8h10a5 5 0 0 1 5 5v1a4 4 0 0 1-7.2 2.4L13.6 15H10.4l-1.2 1.4A4 4 0 0 1 2 14v-1a5 5 0 0 1 5-5Z"/>
+        <path d="M7 11v3M5.5 12.5h3M16 12h.1M18 14h.1"/>
+      </symbol>
+
+      <symbol id="icon-pen" viewBox="0 0 24 24">
+        <path d="M3 21l1-4.5L15.5 5 20 9.5 8.5 20 3 21Z"/>
+        <path d="m14.5 6 3.5 3.5"/>
+      </symbol>
+
+      <symbol id="icon-flask" viewBox="0 0 24 24">
+        <path d="M9 3h6v5l4.5 9A3 3 0 0 1 16.8 21H7.2a3 3 0 0 1-2.7-4L9 8V3Z"/>
+        <path d="M7.4 15h9.2"/>
+      </symbol>
+
+      <symbol id="icon-film" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="M7 4v16M17 4v16M2 12h20M2 8h5M2 16h5M17 8h5M17 16h5"/>
+      </symbol>
+
+      <symbol id="icon-calendar" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="16" rx="2"/>
+        <path d="M3 10h18M8 3v4M16 3v4"/>
+        <path d="M8 14h3v3H8z"/>
+      </symbol>
+
       <symbol id="icon-satellite" viewBox="0 0 120 120">
         <g transform="rotate(-30 60 60)">
           <rect x="47" y="43" width="26" height="34" rx="3"/>
@@ -654,7 +687,7 @@
           </button>
 
           <p class="intro-availability">
-            ERA INTRODUCTION PREVIEW / WORLDS INSIDE COMING LATER
+            ERA INTRODUCTION / THE SIMULATED INTERNET IS ONE STEP AHEAD
           </p>
 
           <p
@@ -670,6 +703,189 @@
           <span>DON'T JUST LOOK BACK. STEP INSIDE.</span>
         </div>
       </div>
+    </dialog>
+
+    <!--
+      TAB 03 — ENTER THE WEB.
+      A second native dialog layered over the era portal, so returning to
+      the era introduction never loses the selected year.
+    -->
+    <dialog
+      id="web-environment"
+      class="web-env"
+      data-era="1960"
+      aria-labelledby="web-dialog-title"
+      aria-modal="true"
+    >
+      <h2 id="web-dialog-title" class="sr-only">
+        Simulated internet environment
+      </h2>
+
+      <div class="web-env__stage" aria-hidden="true">
+        <span class="web-env__grid"></span>
+        <span class="web-env__glow"></span>
+        <span class="web-env__scanlines"></span>
+        <span class="web-env__noise"></span>
+      </div>
+
+      <!-- Cinematic entry sequence. Short on purpose. -->
+      <div id="web-loading" class="web-loading">
+        <div class="web-loading__inner">
+          <span class="eyebrow">REWINDYR-ERA / WEB ENTRY PROTOCOL</span>
+
+          <p id="web-loading-year" class="web-loading__year">1960</p>
+
+          <ol
+            id="web-loading-log"
+            class="web-loading__log"
+            role="status"
+            aria-live="polite"
+            aria-atomic="false"
+          ></ol>
+
+          <div
+            id="web-loading-meter"
+            class="web-loading__meter"
+            role="progressbar"
+            aria-label="Entering the simulated internet"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- The simulated machine itself. -->
+      <div id="web-console" class="web-console" hidden>
+        <header class="web-bar">
+          <button id="web-back-era" class="web-chip" type="button">
+            <span aria-hidden="true">←</span>
+            BACK TO ERA INTRO
+          </button>
+
+          <div class="web-bar__identity">
+            <span class="web-bar__brand">REWINDYR-ERA</span>
+            <span id="web-system" class="web-bar__system">RESEARCH TERMINAL</span>
+          </div>
+
+          <div class="web-bar__right">
+            <span class="web-era-chip">
+              <i class="status-led" aria-hidden="true"></i>
+              ERA
+              <b id="web-year">1960</b>
+              <span id="web-era-index">01 / 08</span>
+            </span>
+
+            <button id="web-exit" class="web-chip web-chip--exit" type="button">
+              EXIT WEB
+              <svg class="icon" aria-hidden="true">
+                <use href="#icon-close"></use>
+              </svg>
+            </button>
+          </div>
+        </header>
+
+        <div id="web-shell" class="web-shell" tabindex="-1">
+          <div class="web-shell__bar">
+            <span class="web-shell__dots" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <span id="web-chrome" class="web-shell__title">MAINFRAME CONSOLE</span>
+            <span id="web-signal" class="web-shell__signal">CARRIER DETECTED</span>
+          </div>
+
+          <div class="web-shell__address">
+            <span class="tiny-led" aria-hidden="true"></span>
+            <span id="web-address" class="web-shell__url"></span>
+            <span id="web-host" class="web-shell__host"></span>
+          </div>
+
+          <div class="web-shell__body">
+            <nav
+              id="web-sections"
+              class="web-sections"
+              aria-label="Sections of this era's internet"
+            ></nav>
+
+            <div class="web-stage-wrap">
+              <section
+                id="web-overview"
+                class="web-panel"
+                aria-labelledby="web-overview-heading"
+              >
+                <span id="web-overview-eyebrow" class="web-panel__eyebrow"></span>
+
+                <h3 id="web-overview-heading"></h3>
+
+                <p id="web-overview-line" class="web-panel__line"></p>
+
+                <p id="web-brand-statement" class="web-brand-statement">
+                  THE PAST IS NOT OFFLINE.
+                </p>
+
+                <dl id="web-facts" class="web-facts"></dl>
+
+                <p id="web-overview-hint" class="web-panel__hint"></p>
+              </section>
+
+              <section
+                id="web-section-panel"
+                class="web-panel web-panel--section"
+                aria-labelledby="web-section-title"
+                hidden
+              >
+                <button id="web-section-back" class="web-chip" type="button">
+                  <span aria-hidden="true">←</span>
+                  RETURN TO CONSOLE
+                </button>
+
+                <span
+                  id="web-section-eyebrow"
+                  class="web-panel__eyebrow"
+                ></span>
+
+                <h3 id="web-section-title" tabindex="-1"></h3>
+
+                <p id="web-section-line" class="web-panel__line"></p>
+
+                <ul id="web-section-items" class="web-panel__items"></ul>
+
+                <p class="web-panel__note">
+                  SECTION WORLD UNDER CONSTRUCTION / ARRIVES IN A LATER TAB
+                </p>
+
+                <p id="web-section-brand" class="web-panel__brand">
+                  THE PAST IS NOT OFFLINE.
+                </p>
+              </section>
+            </div>
+          </div>
+
+          <footer class="web-shell__footer">
+            <span class="web-footer__brand">
+              <i class="status-led" aria-hidden="true"></i>
+              <b id="web-brand-line">THE PAST IS NOT OFFLINE.</b>
+            </span>
+            <span id="web-footer-meta" class="web-footer__meta"></span>
+          </footer>
+        </div>
+      </div>
+
+      <template id="web-section-template">
+        <button class="web-section" type="button">
+          <span class="web-section__index" aria-hidden="true"></span>
+          <svg class="icon web-section__icon" aria-hidden="true">
+            <use></use>
+          </svg>
+          <span class="web-section__text">
+            <span class="web-section__label"></span>
+            <span class="web-section__meta"></span>
+          </span>
+          <span class="web-section__marker" aria-hidden="true"></span>
+        </button>
+      </template>
     </dialog>
 
     <dialog
@@ -705,8 +921,9 @@
       </p>
 
       <div class="about-note">
-        This first version contains the home-page controls and era
-        introductions. The simulated internet will be built in later tabs.
+        The home-page controls, the era introductions, and the simulated
+        internet inside each era are live. The individual section worlds
+        are still being built.
       </div>
 
       <button
