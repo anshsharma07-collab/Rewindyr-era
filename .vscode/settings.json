@@ -1,0 +1,18 @@
+{
+  // Keeps the three source files byte-identical across machines.
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+
+  // Stops VS Code from re-indenting or re-wrapping pasted code.
+  "editor.formatOnPaste": false,
+  "editor.detectIndentation": false,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+
+  // The project is plain browser JavaScript: no modules, no bundler.
+  "javascript.validate.enable": true,
+  "javascript.preferences.quoteStyle": "double",
+  "html.format.wrapLineLength": 0
+}
